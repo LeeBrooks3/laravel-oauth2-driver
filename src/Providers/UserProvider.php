@@ -1,13 +1,14 @@
 <?php
 
-namespace LeeBrooks3\Laravel\OAuth2\Repositories;
+namespace LeeBrooks3\Laravel\OAuth2\Providers;
 
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Contracts\Auth\Authenticatable;
 use LeeBrooks3\Laravel\OAuth2\Http\Clients\Client;
+use LeeBrooks3\Laravel\Providers\UserProvider as BaseUserProvider;
 use LeeBrooks3\Repositories\ModelRepositoryInterface;
 
-class ApiRepository extends Repository
+class UserProvider extends BaseUserProvider
 {
     /**
      * A client instance.

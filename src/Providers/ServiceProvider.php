@@ -3,43 +3,21 @@
 namespace LeeBrooks3\Laravel\OAuth2\Providers;
 
 use Illuminate\Auth\AuthManager;
-use Illuminate\Contracts\Config\Repository as Config;
-use Illuminate\Contracts\Hashing\Hasher;
-use Laravel\Passport\Bridge\RefreshTokenRepository;
-use Laravel\Passport\Passport;
-use Laravel\Passport\PassportServiceProvider;
-use League\OAuth2\Server\Grant\PasswordGrant;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use LeeBrooks3\Laravel\OAuth2\Http\Clients\Client;
-use LeeBrooks3\Laravel\OAuth2\Repositories\ApiRepository;
-use LeeBrooks3\Laravel\OAuth2\Repositories\DatabaseRepository as DatabaseRepository;
 use LeeBrooks3\Models\ModelInterface;
 use LeeBrooks3\Repositories\ModelRepositoryInterface;
 
-class ServiceProvider extends PassportServiceProvider
+class ServiceProvider extends BaseServiceProvider
 {
     /**
-     * An auth manager instance.
-     *
-     * @var AuthManager
-     */
-    private $auth;
-
-    /**
-     * A config repository instance.
-     *
-     * @var Config
-     */
-    private $config;
-
-    /**
-     * {@inheritdoc}
+     * Merges/publishes the oauth2 config file.
      *
      * @return void
      */
     public function boot() : void
     {
-        parent::boot();
-
         $configPath = $this->app->make('path.config');
 
         $this->mergeConfigFrom(__DIR__ .'/../../config/oauth2.php', 'oauth2');
@@ -50,91 +28,26 @@ class ServiceProvider extends PassportServiceProvider
     }
 
     /**
-     * {@inheritdoc}
+     * Registers the api repository user provider.
      *
      * @return void
      */
     public function register() : void
     {
-        $this->auth = $this->app->make(AuthManager::class);
-        $this->config = $this->app->make(Config::class);
+        /** @var AuthManager $auth */
+        $auth = $this->app->make(AuthManager::class);
 
-        $this->registerUserProviders();
+        $auth->provider('api_repository', function (Application $app, array $config) {
+            /**
+             * @var ModelInterface $model
+             * @var ModelRepositoryInterface $repository
+             * @var Client $client
+             */
+            $model = $app->make($config['model']);
+            $repository = $app->make($config['repository']);
+            $client = $app->make(Client::class);
 
-        parent::register();
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @return \League\OAuth2\Server\Grant\PasswordGrant
-     */
-    protected function makePasswordGrant() : PasswordGrant
-    {
-        $grant = new PasswordGrant(
-            $this->makeDatabaseRepository(),
-            $this->app->make(RefreshTokenRepository::class)
-        );
-
-        $grant->setRefreshTokenTTL(Passport::refreshTokensExpireIn());
-
-        return $grant;
-    }
-
-    /**
-     * Makes a database repository instance.
-     *
-     * @return DatabaseRepository
-     */
-    protected function makeDatabaseRepository() : DatabaseRepository
-    {
-        $config = $this->config->get('auth.providers.users');
-
-        /**
-         * @var ModelInterface $model
-         * @var ModelRepositoryInterface $repository
-         */
-        $model = $this->app->make($config['model']);
-        $repository = $this->app->make($config['repository']);
-        $hasher = $this->app->make(Hasher::class);
-
-        return new DatabaseRepository($model, $repository, $hasher);
-    }
-
-    /**
-     * Makes an API repository instance.
-     *
-     * @return ApiRepository
-     */
-    protected function makeApiRepository() : ApiRepository
-    {
-        $config = $this->config->get('auth.providers.users');
-
-        /**
-         * @var ModelInterface $model
-         * @var ModelRepositoryInterface $repository
-         * @var Client $client
-         */
-        $model = $this->app->make($config['model']);
-        $repository = $this->app->make($config['repository']);
-        $client = $this->app->make(Client::class);
-
-        return new ApiRepository($model, $repository, $client);
-    }
-
-    /**
-     * Registers the user provider.
-     *
-     * @return void
-     */
-    private function registerUserProviders() : void
-    {
-        $this->auth->provider('oauth2_database', function () {
-            return $this->makeDatabaseRepository();
-        });
-
-        $this->auth->provider('oauth2_api', function () {
-            return $this->makeApiRepository();
+            return new UserProvider($model, $repository, $client);
         });
     }
 }

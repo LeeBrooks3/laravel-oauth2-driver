@@ -3,15 +3,14 @@
 namespace LeeBrooks3\Laravel\OAuth2\Tests\Unit\Repositories;
 
 use GuzzleHttp\Exception\BadResponseException;
-use Laravel\Passport\Bridge\User as PassportUser;
-use League\OAuth2\Server\Entities\ClientEntityInterface;
 use LeeBrooks3\Laravel\OAuth2\Http\Clients\Client;
-use LeeBrooks3\Laravel\OAuth2\Repositories\ApiRepository;
-use LeeBrooks3\Laravel\OAuth2\Tests\Examples\Models\ExampleUser;
+use LeeBrooks3\Laravel\OAuth2\Providers\UserProvider;
+use LeeBrooks3\Laravel\Tests\Examples\Models\ExampleUser;
+use LeeBrooks3\Laravel\Tests\Unit\Providers\UserProviderTest as BaseUserProviderTest;
 use LeeBrooks3\Repositories\ModelRepositoryInterface;
 use PHPUnit\Framework\MockObject\MockObject;
 
-class ApiRepositoryTest extends RepositoryTest
+class UserProviderTest extends BaseUserProviderTest
 {
     /**
      * A mocked client instance.
@@ -31,7 +30,7 @@ class ApiRepositoryTest extends RepositoryTest
         $this->mockRepository = $this->createMock(ModelRepositoryInterface::class);
         $this->mockClient = $this->createMock(Client::class);
 
-        $this->repository = new ApiRepository($model, $this->mockRepository, $this->mockClient);
+        $this->userProvider = new UserProvider($model, $this->mockRepository, $this->mockClient);
     }
 
     /**
@@ -50,8 +49,7 @@ class ApiRepositoryTest extends RepositoryTest
             ->method('getUserToken')
             ->with($user->email, $credentials['password']);
 
-
-        $result = $this->repository->validateCredentials($user, $credentials);
+        $result = $this->userProvider->validateCredentials($user, $credentials);
 
         $this->assertTrue($result);
     }
@@ -75,43 +73,8 @@ class ApiRepositoryTest extends RepositoryTest
             ->with($user->email, $credentials['password'])
             ->willThrowException($mockException);
 
-        $result = $this->repository->validateCredentials($user, $credentials);
+        $result = $this->userProvider->validateCredentials($user, $credentials);
 
         $this->assertFalse($result);
-    }
-
-    /**
-     * Tests that a passport user entity can be returned by credentials.
-     */
-    public function testGetUserEntityByCredentials()
-    {
-        /** @var ClientEntityInterface $mockClientEntity */
-        $email = $this->faker->email;
-        $password = $this->faker->password;
-        $mockClientEntity = $this->createMock(ClientEntityInterface::class);
-        $user = new ExampleUser([
-            'id' => $this->faker->uuid,
-            'email' => $email,
-        ]);
-        $credentials = [
-            'password' => $password,
-        ];
-
-        $this->mockRepository->expects($this->once())
-            ->method('get')
-            ->with([
-                'email' => $user->email,
-            ])
-            ->willReturn([
-                $user,
-            ]);
-
-        $this->mockClient->expects($this->once())
-            ->method('getUserToken')
-            ->with($user->email, $credentials['password']);
-
-        $result = $this->repository->getUserEntityByUserCredentials($email, $password, '', $mockClientEntity);
-
-        $this->assertInstanceOf(PassportUser::class, $result);
     }
 }

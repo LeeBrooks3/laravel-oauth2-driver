@@ -1,6 +1,6 @@
 {
   "name": "leebrooks3/laravel-oauth2-driver",
-  "description": "Components used for consuming a OAuth2 authentication service such as Laravel Passport.",
+  "description": "A Laravel library for consuming an OAuth2 server.",
   "keywords": ["laravel", "passport", "oauth2"],
   "license": "MIT",
   "type": "project",
@@ -9,8 +9,8 @@
     "illuminate/auth": "^5.6",
     "illuminate/contracts": "^5.6",
     "illuminate/support": "^5.6",
-    "laravel/passport": "^6.0",
-    "leebrooks3/laravel": "^0.0.1"
+    "leebrooks3/laravel": "^0.0.2",
+    "leebrooks3/php-oauth2-client": "^0.0.2"
   },
   "require-dev": {
     "fzaninotto/faker": "^1.7",
@@ -24,6 +24,10 @@
     {
       "type": "vcs",
       "url": "https://github.com/leebrooks3/php"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/leebrooks3/php-oauth2-client"
     }
   ],
   "autoload": {
