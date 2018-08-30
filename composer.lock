@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "bf7301e59f3af043c7dd73708102fdd8",
+    "content-hash": "677e38030fc274064ddc71a1d14ef7fb",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -1320,16 +1320,16 @@
         },
         {
             "name": "leebrooks3/laravel",
-            "version": "v0.0.2",
+            "version": "v0.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LeeBrooks3/laravel.git",
-                "reference": "a7ff77653667348ede88eecef93ba237bfc3a805"
+                "reference": "491c130fa72780c7470ef8e4ef90a8fe4651eb85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LeeBrooks3/laravel/zipball/a7ff77653667348ede88eecef93ba237bfc3a805",
-                "reference": "a7ff77653667348ede88eecef93ba237bfc3a805",
+                "url": "https://api.github.com/repos/LeeBrooks3/laravel/zipball/491c130fa72780c7470ef8e4ef90a8fe4651eb85",
+                "reference": "491c130fa72780c7470ef8e4ef90a8fe4651eb85",
                 "shasum": ""
             },
             "require": {
@@ -1381,10 +1381,10 @@
                 "php"
             ],
             "support": {
-                "source": "https://github.com/LeeBrooks3/laravel/tree/v0.0.2",
+                "source": "https://github.com/LeeBrooks3/laravel/tree/v0.0.3",
                 "issues": "https://github.com/LeeBrooks3/laravel/issues"
             },
-            "time": "2018-08-29T22:25:40+00:00"
+            "time": "2018-08-30T09:40:50+00:00"
         },
         {
             "name": "leebrooks3/php",
