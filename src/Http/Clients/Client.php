@@ -19,6 +19,8 @@ class Client extends BaseClient
         $tokenEndpoint = $config->get('oauth2.token_endpoint');
         $authorizeEndpoint = $config->get('oauth2.authorize_endpoint');
 
+        $this->user = $config->get('auth.providers.users.model');
+
         parent::__construct($clientId, $clientSecret, $serverUrl, $userEndpoint, $tokenEndpoint, $authorizeEndpoint);
     }
 }

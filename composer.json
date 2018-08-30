@@ -10,7 +10,7 @@
     "illuminate/contracts": "^5.6",
     "illuminate/support": "^5.6",
     "leebrooks3/laravel": "^0.0.3",
-    "leebrooks3/php-oauth2-client": "^0.0.2"
+    "leebrooks3/php-oauth2-client": "^0.0.3"
   },
   "require-dev": {
     "fzaninotto/faker": "^1.7",

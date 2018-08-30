@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "677e38030fc274064ddc71a1d14ef7fb",
+    "content-hash": "58e54e0f179fe1ed43c1b9a1800c2d2a",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -1435,16 +1435,16 @@
         },
         {
             "name": "leebrooks3/php-oauth2-client",
-            "version": "v0.0.2",
+            "version": "v0.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LeeBrooks3/php-oauth2-client.git",
-                "reference": "2466af924626472adf33db52c7049bb85a8e8140"
+                "reference": "7f3d8a4719d6ee911576d7b72cf3a8833631ad0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LeeBrooks3/php-oauth2-client/zipball/2466af924626472adf33db52c7049bb85a8e8140",
-                "reference": "2466af924626472adf33db52c7049bb85a8e8140",
+                "url": "https://api.github.com/repos/LeeBrooks3/php-oauth2-client/zipball/7f3d8a4719d6ee911576d7b72cf3a8833631ad0c",
+                "reference": "7f3d8a4719d6ee911576d7b72cf3a8833631ad0c",
                 "shasum": ""
             },
             "require": {
@@ -1476,10 +1476,10 @@
                 "php"
             ],
             "support": {
-                "source": "https://github.com/LeeBrooks3/php-oauth2-client/tree/v0.0.2",
+                "source": "https://github.com/LeeBrooks3/php-oauth2-client/tree/v0.0.3",
                 "issues": "https://github.com/LeeBrooks3/php-oauth2-client/issues"
             },
-            "time": "2018-08-29T23:01:26+00:00"
+            "time": "2018-08-30T14:37:48+00:00"
         },
         {
             "name": "nesbot/carbon",
