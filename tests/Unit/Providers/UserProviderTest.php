@@ -1,6 +1,6 @@
 <?php
 
-namespace LeeBrooks3\Laravel\OAuth2\Tests\Unit\Repositories;
+namespace LeeBrooks3\Laravel\OAuth2\Tests\Unit\Providers;
 
 use GuzzleHttp\Exception\BadResponseException;
 use LeeBrooks3\Laravel\OAuth2\Http\Clients\Client;
@@ -17,7 +17,7 @@ class UserProviderTest extends BaseUserProviderTest
      *
      * @var Client|MockObject
      */
-    private $mockClient;
+    protected $mockClient;
 
     /**
      * Creates a mock model repository and client instance and the repository instance to test.
