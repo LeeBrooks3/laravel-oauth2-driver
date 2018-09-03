@@ -3,6 +3,7 @@
 namespace LeeBrooks3\Laravel\OAuth2\Http\Clients;
 
 use Illuminate\Contracts\Config\Repository as Config;
+use LeeBrooks3\Laravel\Models\UserInterface;
 use LeeBrooks3\Models\ModelInterface;
 use LeeBrooks3\OAuth2\Http\Clients\Client as BaseClient;
 use LeeBrooks3\OAuth2\Models\AccessToken;
@@ -24,5 +25,17 @@ class Client extends BaseClient
         $this->user = $config->get('auth.providers.users.model');
 
         parent::__construct($clientId, $clientSecret, $serverUrl, $userEndpoint, $tokenEndpoint, $authorizeEndpoint);
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @param AccessToken $token
+     * @return UserInterface
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getUser(AccessToken $token): ModelInterface
+    {
+        return parent::getUser($token);
     }
 }
