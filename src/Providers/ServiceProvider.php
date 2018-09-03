@@ -37,7 +37,7 @@ class ServiceProvider extends BaseServiceProvider
         /** @var AuthManager $auth */
         $auth = $this->app->make(AuthManager::class);
 
-        $auth->provider('api_repository', function (Application $app, array $config) {
+        $auth->provider('oauth2_api_repository', function (Application $app, array $config) {
             /**
              * @var ModelInterface $model
              * @var ModelRepositoryInterface $repository
