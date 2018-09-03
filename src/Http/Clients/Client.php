@@ -3,7 +3,9 @@
 namespace LeeBrooks3\Laravel\OAuth2\Http\Clients;
 
 use Illuminate\Contracts\Config\Repository as Config;
+use LeeBrooks3\Models\ModelInterface;
 use LeeBrooks3\OAuth2\Http\Clients\Client as BaseClient;
+use LeeBrooks3\OAuth2\Models\AccessToken;
 
 class Client extends BaseClient
 {
