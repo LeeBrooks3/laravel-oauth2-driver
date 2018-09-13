@@ -10,6 +10,7 @@
     "illuminate/contracts": "^5.6",
     "illuminate/support": "^5.6",
     "leebrooks3/laravel": "dev-master",
+    "leebrooks3/php": "dev-master",
     "leebrooks3/php-oauth2-client": "dev-master"
   },
   "require-dev": {

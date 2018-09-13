@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8f3c340b632c341a31584ce028af8651",
+    "content-hash": "5e22d9dc98b8dee92ef2e05334062ec3",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -1392,12 +1392,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/LeeBrooks3/php.git",
-                "reference": "ed40ab506fca246b2bab64cd7b9a690221844e92"
+                "reference": "32439d4e90d99fec83f7da1f150159242628863c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LeeBrooks3/php/zipball/ed40ab506fca246b2bab64cd7b9a690221844e92",
-                "reference": "ed40ab506fca246b2bab64cd7b9a690221844e92",
+                "url": "https://api.github.com/repos/LeeBrooks3/php/zipball/32439d4e90d99fec83f7da1f150159242628863c",
+                "reference": "32439d4e90d99fec83f7da1f150159242628863c",
                 "shasum": ""
             },
             "require": {
@@ -1428,10 +1428,10 @@
                 "php"
             ],
             "support": {
-                "source": "https://github.com/LeeBrooks3/php/tree/v0.0.5",
+                "source": "https://github.com/LeeBrooks3/php/tree/master",
                 "issues": "https://github.com/LeeBrooks3/php/issues"
             },
-            "time": "2018-08-30T15:37:52+00:00"
+            "time": "2018-09-13T19:32:59+00:00"
         },
         {
             "name": "leebrooks3/php-oauth2-client",
@@ -4167,6 +4167,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "leebrooks3/laravel": 20,
+        "leebrooks3/php": 20,
         "leebrooks3/php-oauth2-client": 20
     },
     "prefer-stable": true,
