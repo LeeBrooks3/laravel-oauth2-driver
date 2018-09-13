@@ -1324,12 +1324,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/LeeBrooks3/laravel.git",
-                "reference": "53ea8c432151b900abe128ccee9a35e0c38bd43b"
+                "reference": "5198b03b7c1eb4eeb0ee888279972433b418b22b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LeeBrooks3/laravel/zipball/53ea8c432151b900abe128ccee9a35e0c38bd43b",
-                "reference": "53ea8c432151b900abe128ccee9a35e0c38bd43b",
+                "url": "https://api.github.com/repos/LeeBrooks3/laravel/zipball/5198b03b7c1eb4eeb0ee888279972433b418b22b",
+                "reference": "5198b03b7c1eb4eeb0ee888279972433b418b22b",
                 "shasum": ""
             },
             "require": {
@@ -1384,7 +1384,7 @@
                 "source": "https://github.com/LeeBrooks3/laravel/tree/master",
                 "issues": "https://github.com/LeeBrooks3/laravel/issues"
             },
-            "time": "2018-09-03T20:40:33+00:00"
+            "time": "2018-09-13T19:45:24+00:00"
         },
         {
             "name": "leebrooks3/php",
@@ -1439,12 +1439,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/LeeBrooks3/php-oauth2-client.git",
-                "reference": "1e03ef7410466021e514d30bcf0437dbfbea97b5"
+                "reference": "d6846e5fbad79e644d3f187cbe3303bbcb64951b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LeeBrooks3/php-oauth2-client/zipball/1e03ef7410466021e514d30bcf0437dbfbea97b5",
-                "reference": "1e03ef7410466021e514d30bcf0437dbfbea97b5",
+                "url": "https://api.github.com/repos/LeeBrooks3/php-oauth2-client/zipball/d6846e5fbad79e644d3f187cbe3303bbcb64951b",
+                "reference": "d6846e5fbad79e644d3f187cbe3303bbcb64951b",
                 "shasum": ""
             },
             "require": {
@@ -1479,7 +1479,7 @@
                 "source": "https://github.com/LeeBrooks3/php-oauth2-client/tree/master",
                 "issues": "https://github.com/LeeBrooks3/php-oauth2-client/issues"
             },
-            "time": "2018-09-03T18:00:05+00:00"
+            "time": "2018-09-13T21:05:22+00:00"
         },
         {
             "name": "nesbot/carbon",
